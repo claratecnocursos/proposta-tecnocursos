@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plataforma de Treinamentos TecnoCursos – Documento Institucional e Comercial. Ecossistema completo de gestão, capacitação e evidências para auditorias.">
+<title>Plataforma de Treinamentos TecnoCursos | Documento Executivo</title>
+<link rel="icon" type="image/x-icon" href="img/NOVA-LOGO-TECNOCURSOS-ICON-COM-BORDA.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #1DD3B0;
+    --red-dark: #1DD3B0;
+    --red-light: #1DD3B0;
+    --teal-text: #1DD3B0;
+    --dark: #0A1326;
+    --dark2: #0C3460;
+    --dark3: #123F6D;
+    --gray: #555555;
+    --gray-light: #888888;
+    --offwhite: #F7F7F7;
+    --white: #FFFFFF;
+    --border: #E0E0E0;
+    --accent: #E8E8E8;
+    --gold: #C8A400;
+    --shadow-sm: 0 1px 2px rgba(10,19,38,0.05), 0 1px 1px rgba(10,19,38,0.03);
+    --shadow-md: 0 10px 24px -8px rgba(10,19,38,0.12), 0 2px 8px rgba(10,19,38,0.05);
+    --shadow-lg: 0 24px 48px -16px rgba(10,19,38,0.22), 0 8px 20px -8px rgba(10,19,38,0.1);
+    --shadow-glow: 0 12px 28px -8px rgba(29,211,176,0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* =================== CAPA =================== */
+  .cover {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 40%, var(--red-dark) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(29,211,176,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(29,211,176,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-logo-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-light) 50%, var(--red) 100%);
+  }
+
+  .cover-logo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 32px;
+    z-index: 1;
+  }
+
+  .cover-tag {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    z-index: 1;
+  }
+
+  .cover-title {
+    color: var(--white);
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .cover-title span {
+    color: var(--red);
+  }
+
+  .cover-subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 400;
+    text-align: center;
+    max-width: 680px;
+    margin: 20px auto 0;
+    z-index: 1;
+    line-height: 1.7;
+  }
+
+  .cover-divider {
+    width: 80px; height: 4px;
+    background: var(--red);
+    margin: 32px auto;
+    border-radius: 2px;
+    z-index: 1;
+  }
+
+  .cover-support {
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 560px;
+    font-style: italic;
+    z-index: 1;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 32px;
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .cover-badge {
+    background: rgba(29,211,176,0.2);
+    border: 1px solid rgba(29,211,176,0.5);
+    color: rgba(255,255,255,0.9);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 40px;
+    z-index: 1;
+  }
+
+  /* =================== LAYOUT GERAL =================== */
+  .section {
+    padding: 72px 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;
+  }
+
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(circle at 12% 8%, rgba(29,211,176,0.18) 0%, transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(29,211,176,0.10) 0%, transparent 40%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .section-full {
+    padding: 72px 64px;
+  }
+
+  /* =================== SEÇÕES ESCURAS ALTERNADAS =================== */
+  .section-dark {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .section-dark::before {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 40%),
+      linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%);
+  }
+
+  .section-dark .section-title { color: white; }
+
+  .section-dark .section-desc { color: rgba(255,255,255,0.6); }
+
+  .section-dark .card {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: none;
+  }
+
+  .section-dark .card:hover {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 22px 40px -12px rgba(0,0,0,0.45), var(--shadow-glow);
+    border-color: rgba(29,211,176,0.35);
+  }
+
+  .section-dark .card h3 { color: white; }
+  .section-dark .card p { color: rgba(255,255,255,0.65); }
+  .section-dark .card-label { color: rgba(255,255,255,0.55); }
+
+  .section-dark .card-icon {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.16);
+  }
+
+  .section-dark .journey-step {
+    background: linear-gradient(155deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+
+  .section-dark .journey-step:hover {
+    background: linear-gradient(155deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+    border-color: rgba(29,211,176,0.4);
+    box-shadow: 0 22px 40px -12px rgba(0,0,0,0.45), var(--shadow-glow);
+  }
+
+  .section-dark .check-list li { color: rgba(255,255,255,0.85); }
+
+  .section-dark .table-wrap {
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .section-dark .evolution-table th:first-child {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .section-dark .evolution-table td {
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .section-dark .evolution-table td:first-child {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .section-dark .evolution-table td:last-child {
+    background: rgba(255,255,255,0.02);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .section-dark .evolution-table tr:hover td:first-child { background: rgba(255,255,255,0.09); }
+  .section-dark .evolution-table tr:hover td:last-child { background: rgba(29,211,176,0.08); }
+
+  .section-dark .highlight-box {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .section-dark .module-item {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: none;
+  }
+
+  .section-dark .module-item:hover {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 22px 40px -12px rgba(0,0,0,0.45), var(--shadow-glow);
+  }
+
+  .section-dark .module-item h4 { color: white; }
+  .section-dark .module-item p { color: rgba(255,255,255,0.6); }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* =================== CABEÇALHOS DE SEÇÃO =================== */
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .section-tag {
+    color: var(--teal-text);
+    background: rgba(29,211,176,0.1);
+    border: 1px solid rgba(29,211,176,0.25);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    display: inline-block;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+  }
+
+  .section-title span {
+    color: var(--teal-text);
+  }
+
+  .section-desc {
+    color: var(--gray);
+    font-size: 15px;
+    max-width: 680px;
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  .line-accent {
+    width: 48px; height: 4px;
+    background: linear-gradient(90deg, var(--red) 0%, rgba(29,211,176,0.25) 100%);
+    border-radius: 4px;
+    margin-top: 18px;
+  }
+
+  /* =================== SEPARADOR DE PÁGINA =================== */
+  .page-band {
+    background: linear-gradient(90deg, var(--dark) 0%, var(--dark2) 100%);
+    padding: 20px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .page-band h2 {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .page-band-light {
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    box-shadow: 0 6px 16px rgba(10,19,38,0.06);
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-band-light h2 { color: var(--dark); }
+  .page-band-light .page-band-number { color: var(--teal-text); opacity: 0.4; }
+
+  .page-band-number {
+    color: var(--red);
+    font-size: 40px;
+    font-weight: 900;
+    opacity: 0.35;
+  }
+
+  /* =================== CARDS =================== */
+  .cards-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .cards-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .cards-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(10,19,38,0.07);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm), 0 30px 50px -32px rgba(29,211,176,0.4);
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg), 0 34px 60px -24px rgba(29,211,176,0.5);
+    border-color: rgba(29,211,176,0.35);
+  }
+
+  .card.card-red {
+    background: linear-gradient(155deg, rgba(29,211,176,0.24) 0%, rgba(29,211,176,0.11) 100%);
+    border-color: rgba(29,211,176,0.4);
+    box-shadow: var(--shadow-sm), 0 30px 50px -32px rgba(29,211,176,0.4);
+  }
+
+  .card.card-red:hover {
+    box-shadow: var(--shadow-lg), 0 34px 60px -24px rgba(29,211,176,0.5);
+  }
+
+  .card.card-dark {
+    background: linear-gradient(155deg, var(--dark2) 0%, var(--dark) 100%);
+    border-color: transparent;
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card.card-outline {
+    border: 1.5px solid var(--red);
+    box-shadow: var(--shadow-sm), 0 0 0 3px rgba(29,211,176,0.15);
+  }
+
+  .card-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(155deg, rgba(29,211,176,0.16) 0%, rgba(29,211,176,0.05) 100%);
+    border: 1px solid rgba(29,211,176,0.18);
+    box-shadow: 0 10px 22px -6px rgba(29,211,176,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    font-size: 21px;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s;
+  }
+
+  .card:hover .card-icon {
+    transform: scale(1.08) rotate(-4deg);
+    box-shadow: 0 12px 26px -6px rgba(29,211,176,0.55);
+  }
+
+  .card-icon-white {
+    background: var(--white);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  .card.card-dark h3 { color: var(--white); }
+
+  .card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .card.card-dark p { color: rgba(255,255,255,0.8); }
+
+  .card-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--teal-text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .card-number-white { color: var(--white); }
+
+  .card-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-light);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* =================== VISÃO EXECUTIVA =================== */
+  .exec-intro {
+    background: linear-gradient(135deg, var(--offwhite) 0%, #EDEDED 100%);
+    border-left: 4px solid var(--red);
+    border-radius: 20px;
+    padding: 40px 44px;
+    margin-bottom: 48px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .exec-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--dark2);
+    font-weight: 400;
+  }
+
+  .exec-intro strong {
+    color: var(--teal-text);
+    font-weight: 700;
+  }
+
+  /* =================== ANTES x EVOLUÇÃO =================== */
+  .table-wrap {
+    margin-top: 32px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(10,19,38,0.06);
+  }
+
+  .evolution-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .evolution-table th {
+    padding: 16px 24px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .evolution-table th:first-child {
+    background: #EFEFEF;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .evolution-table th:last-child {
+    background: linear-gradient(135deg, var(--red) 0%, #14B090 100%);
+    color: var(--white);
+    text-align: left;
+  }
+
+  .evolution-table td {
+    padding: 16px 24px;
+    font-size: 13.5px;
+    border-bottom: 1px solid rgba(10,19,38,0.06);
+    vertical-align: top;
+    transition: background-color 0.25s;
+  }
+
+  .evolution-table td:first-child {
+    color: var(--gray);
+    background: #FAFAFA;
+  }
+
+  .evolution-table td:last-child {
+    color: var(--dark);
+    font-weight: 500;
+    background: var(--white);
+  }
+
+  .evolution-table tr:last-child td { border-bottom: none; }
+
+  .evolution-table tr:hover td:first-child { background: #F2F2F2; }
+  .evolution-table tr:hover td:last-child { background: rgba(29,211,176,0.05); }
+
+  /* =================== FLUXO =================== */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 32px;
+    align-items: stretch;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+    position: relative;
+  }
+
+  .flow-step-box {
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 14px 10px;
+    width: 100%;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    position: relative;
+  }
+
+  .flow-step-box.highlight {
+    background: var(--red);
+  }
+
+  .flow-arrow {
+    color: var(--teal-text);
+    font-size: 18px;
+    font-weight: 900;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+
+  .flow-number {
+    width: 22px; height: 22px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    position: absolute;
+    top: -8px; left: -8px;
+  }
+
+  /* =================== DESTAQUE / QUOTE =================== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+    border-radius: 22px;
+    padding: 44px;
+    text-align: center;
+    margin: 48px 0;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(29,211,176,0.15);
+  }
+
+  .highlight-box p {
+    color: var(--white);
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 600;
+    line-height: 1.6;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .highlight-box span {
+    color: var(--white);
+  }
+
+  .highlight-box-red {
+    background: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 100%);
+  }
+
+  /* =================== LISTA =================== */
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .check-list li::before {
+    content: '✓';
+    min-width: 22px; height: 22px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+    box-shadow: 0 4px 10px -2px rgba(29,211,176,0.4);
+  }
+
+  /* =================== MÓDULOS/GRUPOS =================== */
+  .module-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .module-item {
+    border: 1px solid rgba(10,19,38,0.06);
+    border-radius: 16px;
+    padding: 18px 20px;
+    background: var(--white);
+    border-left: 4px solid var(--red);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .module-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .module-item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .module-item p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* =================== INDICADORES =================== */
+  .indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .indicator-item {
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--white);
+    border: 1px solid rgba(10,19,38,0.06);
+    border-radius: 18px;
+    border-top: 4px solid var(--red);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .indicator-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .indicator-value {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .indicator-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.4;
+  }
+
+  /* =================== PERFIS =================== */
+  .profile-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(10,19,38,0.06);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .profile-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .profile-avatar {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(155deg, var(--red) 0%, #14B090 100%);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px -4px rgba(29,211,176,0.45);
+  }
+
+  .profile-info h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .profile-info p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  /* =================== ENCERRAMENTO =================== */
+  .closing {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 40%, var(--red-dark) 100%);
+    padding: 100px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(29,211,176,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .closing h1 {
+    color: var(--white);
+    font-size: clamp(22px, 4vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    z-index: 1;
+    position: relative;
+  }
+
+  .closing h1 span { color: var(--red); }
+
+  .closing p {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    max-width: 620px;
+    margin: 24px auto 0;
+    line-height: 1.7;
+    z-index: 1;
+    position: relative;
+  }
+
+  .closing-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.9);
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* =================== JORNADA (PASSOS NUMERADOS) =================== */
+  .journey-step {
+    flex: 1 1 150px;
+    background: linear-gradient(155deg, var(--dark2) 0%, var(--dark) 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 20px 14px;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .journey-step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .journey-num {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--red);
+    color: var(--dark);
+    border-radius: 50%;
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: 0 3px 8px rgba(10,19,38,0.3);
+  }
+
+  /* =================== CARDS DE AUDITORIA (FUNDO ESCURO) =================== */
+  .audit-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), background-color 0.3s, border-color 0.3s;
+  }
+
+  .audit-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(29,211,176,0.35);
+  }
+
+  .audit-card-highlight {
+    background: linear-gradient(155deg, var(--dark2) 0%, var(--dark) 100%);
+    border: 1px solid rgba(29,211,176,0.3);
+    box-shadow: var(--shadow-md);
+  }
+
+  .audit-card-highlight:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    border-color: rgba(29,211,176,0.5);
+  }
+
+  /* =================== TIPOGRAFIA AUXILIAR =================== */
+  .text-red { color: var(--teal-text); }
+  .text-gray { color: var(--gray); }
+  .fw-800 { font-weight: 800; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mb-32 { margin-bottom: 32px; }
+  .mb-48 { margin-bottom: 48px; }
+  .mt-32 { margin-top: 32px; }
+  .mt-48 { margin-top: 48px; }
+
+  /* =================== IMPRESSÃO =================== */
+  @media print {
+    .cover { page-break-after: always; min-height: 100vh; }
+    .section { page-break-inside: avoid; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================= CAPA ============================= -->
+<div class="cover">
+  <div class="cover-logo-bar"></div>
+  <img src="img/NOVA LOGO TECNOCURSOS BRANCO 1.png" alt="TecnoCursos" class="cover-logo">
+  <div class="cover-tag">Documento Executivo — Renovação Contratual</div>
+  <h1 class="cover-title">
+    Plataforma de Treinamentos<br><span>TecnoCursos</span>
+  </h1>
+  <div class="cover-divider"></div>
+  <p class="cover-subtitle">
+    Evolução tecnológica, gestão inteligente e treinamentos preparados para os novos desafios da operação.
+  </p>
+  <p class="cover-support" style="margin-top:24px;">
+    Uma plataforma completa para capacitar pessoas, acompanhar resultados, centralizar evidências e fortalecer a conformidade.
+  </p>
+  <div class="cover-footer">Tecno Cursos · Lista de Presença Digital · Sistema de Gestão</div>
+</div>
+
+<!-- ============================= 01. VISÃO EXECUTIVA ============================= -->
+<div class="page-band" style="margin-top:0;">
+  <h2>01 · Visão Executiva</h2>
+  <div class="page-band-number">01</div>
+</div>
+
+<div class="section">
+  <div class="exec-intro">
+    <p>
+      Durante o último ano, a plataforma de treinamentos TecnoCursos passou por uma <strong>evolução significativa</strong>.
+      Novas tecnologias, conteúdos mais interativos, controles administrativos refinados e recursos voltados à rastreabilidade
+      transformaram a solução em um ambiente ainda mais completo para a gestão da capacitação corporativa.
+    </p>
+    <p style="margin-top:16px;">
+      Hoje, a plataforma vai muito além da simples disponibilização de cursos. Ela integra <strong>treinamentos teóricos e práticos</strong>,
+      controla a <strong>presença digital</strong> dos colaboradores, emite <strong>certificados com validação pública</strong>,
+      gera <strong>relatórios e exportações</strong> para auditorias e oferece <strong>dashboards gerenciais</strong> para tomada de decisão.
+      Tudo isso com automações que reduzem o trabalho manual e aumentam a confiabilidade das informações.
+    </p>
+  </div>
+
+  <div class="cards-grid cards-grid-4">
+    <div class="card" style="border-top:4px solid var(--red);">
+      <div class="card-number">7+</div>
+      <div class="card-label">Tipos de Módulo de Conteúdo</div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--red);">
+      <div class="card-number">12+</div>
+      <div class="card-label">Relatórios e Exportações</div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--red);">
+      <div class="card-number">6</div>
+      <div class="card-label">Perfis de Acesso Distintos</div>
+    </div>
+    <div class="card" style="border-top:4px solid var(--red);">
+      <div class="card-number">4+</div>
+      <div class="card-label">Automações e Sincronizações</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 02. EVOLUÇÃO DA PLATAFORMA ============================= -->
+<div class="page-band page-break">
+  <h2>02 · Evolução da Plataforma</h2>
+  <div class="page-band-number">02</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Antes x Agora</span>
+    <h2 class="section-title">O que mudou <span>no último ano</span></h2>
+    <p class="section-desc">A plataforma evoluiu em múltiplas frentes simultaneamente, entregando mais controle, rastreabilidade e experiência para todos os perfis de uso.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="table-wrap">
+  <table class="evolution-table">
+    <thead>
+      <tr>
+        <th>Situação Anterior</th>
+        <th>✦ Evolução Atual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Treinamentos apenas disponibilizados via link externo</td>
+        <td>Player integrado com módulos sequenciais, progresso individual e bloqueio de avanço por módulo</td>
+      </tr>
+      <tr>
+        <td>Controle manual de conclusões e lançamentos</td>
+        <td>Sincronização automática diária e periódica, com registros atualizados sem intervenção humana</td>
+      </tr>
+      <tr>
+        <td>Registros dispersos e de difícil localização</td>
+        <td>Histórico centralizado por colaborador, com separação entre teoria, prática e reciclagem</td>
+      </tr>
+      <tr>
+        <td>Acompanhamento básico de status</td>
+        <td>Dashboard gerencial com indicadores globais: colaboradores ativos, inscrições, concluídos e pendências</td>
+      </tr>
+      <tr>
+        <td>Relatórios simples sem filtros avançados</td>
+        <td>Relatórios com múltiplos filtros (unidade, cargo, treinamento, período) e exportação para Excel e PDF</td>
+      </tr>
+      <tr>
+        <td>Conteúdos apenas lineares em texto ou vídeo avulso</td>
+        <td>Módulos com vídeo (Vimeo), páginas HTML interativas (H5P), textos ricos, arquivos e questionários</td>
+      </tr>
+      <tr>
+        <td>Sem avaliação integrada ao conteúdo</td>
+        <td>Questionários com múltipla escolha, verdadeiro/falso, nota mínima, tentativas e feedback visual de respostas</td>
+      </tr>
+      <tr>
+        <td>Lista de presença em papel</td>
+        <td>Lista de Presença Digital com gestão por turma, controle de vagas, alocação de colaboradores e instrutor</td>
+      </tr>
+      <tr>
+        <td>Inscrições realizadas individualmente e manualmente</td>
+        <td>Inscrições em massa por cargo, unidade ou importação de planilha; sincronização automática pela Matriz</td>
+      </tr>
+      <tr>
+        <td>Sem controle de reciclagem ou vencimento</td>
+        <td>Controle de reciclagens com programação automática e alerta de colaboradores com treinamentos vencidos</td>
+      </tr>
+      <tr>
+        <td>Certificados emitidos fora do sistema</td>
+        <td>Certificados emitidos pela plataforma com token único e validação pública via QR Code ou URL</td>
+      </tr>
+      <tr>
+        <td>Gestão reativa — problemas identificados após auditoria</td>
+        <td>Relatório de aptos à prática, histórico de desligados e cubo de treinamentos disponíveis para consulta imediata</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ============================= 03. ECOSSISTEMA ============================= -->
+<div class="page-band page-break">
+  <h2>03 · Ecossistema da Plataforma</h2>
+  <div class="page-band-number">03</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Módulos e Recursos</span>
+    <h2 class="section-title">Uma plataforma, <span>múltiplas capacidades</span></h2>
+    <p class="section-desc">Cada grupo de funcionalidades foi desenvolvido para atender uma necessidade real da operação TecnoCursos.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="module-group">
+    <div class="module-item">
+      <h4>👤 Gestão de Pessoas</h4>
+      <p>Cadastro de colaboradores com cargo, unidade e setor. Ativação, inativação e reativação. Histórico de movimentações e dados de contato.</p>
+    </div>
+    <div class="module-item">
+      <h4>📚 Gestão de Treinamentos</h4>
+      <p>Cadastro e edição de treinamentos com categorias por tipo (formação, reciclagem, CIPA, Brigada). Controle de carga horária e validade.</p>
+    </div>
+    <div class="module-item">
+      <h4>🗺️ Trilhas de Capacitação</h4>
+      <p>Associação de treinamentos a cargos e funções. Matriz de capacitação por cargo, com sincronização automática de inscrições.</p>
+    </div>
+    <div class="module-item">
+      <h4>🎬 Player de Treinamento</h4>
+      <p>Módulos sequenciais com vídeo Vimeo, conteúdo H5P interativo, texto rico, páginas HTML, arquivos e questionários integrados.</p>
+    </div>
+    <div class="module-item">
+      <h4>❓ Quizzes e Avaliações</h4>
+      <p>Questionários com múltipla escolha e verdadeiro/falso, nota mínima configurável, múltiplas tentativas e feedback de respostas.</p>
+    </div>
+    <div class="module-item">
+      <h4>🏋️ Treinamentos Práticos</h4>
+      <p>Controle separado da parte prática dos treinamentos híbridos. Gestão de turmas, instrutores e alocação de colaboradores aptos.</p>
+    </div>
+    <div class="module-item">
+      <h4>📋 Lista de Presença Digital</h4>
+      <p>Criação de turmas com local, horário e vagas por unidade. Fluxo de solicitação, aprovação e encerramento. Calendário visual de turmas.</p>
+    </div>
+    <div class="module-item">
+      <h4>🏅 Certificados</h4>
+      <p>Emissão automática ao concluir treinamentos. Validação pública com token único e QR Code. Exportação individual ou em massa (ZIP/Excel).</p>
+    </div>
+    <div class="module-item">
+      <h4>📊 Relatórios e BI</h4>
+      <p>Dashboard executivo, cubo de treinamentos, relatório mensal, histórico de desligados, aptos à prática e relatório de missões.</p>
+    </div>
+    <div class="module-item">
+      <h4>🏢 Gestão de Unidades</h4>
+      <p>Cadastro e ativação de unidades. Associação de gestores e colaboradores. Controle de acesso por unidade responsável.</p>
+    </div>
+    <div class="module-item">
+      <h4>🔄 Automações e Sync</h4>
+      <p>Sincronização diária automática, relatório de teoria concluída enviado automaticamente, programação de reciclagens e processamento periódico.</p>
+    </div>
+    <div class="module-item">
+      <h4>🔐 Permissões e Perfis</h4>
+      <p>Seis perfis distintos com acesso granular. Cada perfil vê e executa apenas o que é de sua responsabilidade.</p>
+    </div>
+    <div class="module-item">
+      <h4>📅 Pré-Agenda de Treinamentos</h4>
+      <p>Calendário visual de solicitações de treinamentos práticos por unidade. Fluxo de aprovação com participantes e exportação de aptos.</p>
+    </div>
+    <div class="module-item">
+      <h4>🎫 Carteirinhas Digitais</h4>
+      <p>Emissão de carteirinhas para equipamentos fixos e móveis, vinculadas a turmas concluídas.</p>
+    </div>
+    <div class="module-item">
+      <h4>🗂️ Importações</h4>
+      <p>Importação de usuários, cargos, unidades, matrizes e dados via planilha. Processamento em lote com rastreamento de status.</p>
+    </div>
+    <div class="module-item">
+      <h4>🎓 Gestão de Instrutores</h4>
+      <p>Cadastro e associação de instrutores às turmas da Lista de Presença Digital. Identificação nos registros.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 04. EXPERIÊNCIA DE APRENDIZAGEM ============================= -->
+<div class="page-band page-break">
+  <h2>04 · Experiência de Aprendizagem</h2>
+  <div class="page-band-number">04</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Modernização de Conteúdos</span>
+    <h2 class="section-title">Treinamentos que <span>engajam</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="highlight-box">
+    <p>"Treinamentos que <span>deixam de ser apenas obrigatórios</span> e passam a gerar maior atenção, participação e retenção do conhecimento."</p>
+  </div>
+
+  <div class="cards-grid cards-grid-3">
+    <div class="card">
+      <div class="card-icon">🎬</div>
+      <h3>Vídeos com Progresso</h3>
+      <p>Módulos com vídeo via Vimeo com acompanhamento de percentual assistido. O colaborador sabe exatamente onde parou e quanto falta.</p>
+    </div>
+    <div class="card card-outline">
+      <div class="card-icon">🧩</div>
+      <h3>Conteúdo Interativo H5P</h3>
+      <p>Módulos desenvolvidos no formato H5P, permitindo animações, interações e experiências mais dinâmicas do que vídeos estáticos.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>Páginas HTML Personalizadas</h3>
+      <p>Módulos em páginas HTML desenvolvidas sob medida para a realidade operacional, incorporadas diretamente no player da plataforma.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔐</div>
+      <h3>Bloqueio Sequencial</h3>
+      <p>Módulos com bloqueio de avanço ativo: o colaborador só acessa o próximo conteúdo após concluir o anterior, garantindo a sequência pedagógica.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Barra de Progresso Visual</h3>
+      <p>Exibição clara do percentual de conclusão geral do treinamento e de cada módulo individualmente, em tempo real.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Acesso Responsivo</h3>
+      <p>Experiência adaptada para computador, tablet ou celular. O player se reorganiza automaticamente para cada tamanho de tela.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏱️</div>
+      <h3>Controle de Jornada</h3>
+      <p>Ao acessar um treinamento online, o colaborador confirma se está em jornada de trabalho, reforçando a conformidade com as diretrizes da empresa.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Modos de Acesso Configuráveis</h3>
+      <p>Cada perfil pode ser configurado para acessar o treinamento pelo player interno, pelo ambiente Moodle externo, ou por ambos.</p>
+    </div>
+    <div class="card card-dark">
+      <div class="card-icon card-icon-white">✅</div>
+      <h3>Dupla Modalidade</h3>
+      <p>Suporte a treinamentos 100% online, treinamentos híbridos (teoria + prática) e acompanhamento separado de cada etapa.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 05. QUIZZES E GAMIFICAÇÃO ============================= -->
+<div class="page-band page-break">
+  <h2>05 · Quizzes, Avaliações e Gamificação</h2>
+  <div class="page-band-number">05</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Avaliação Integrada</span>
+    <h2 class="section-title">Do conteúdo passivo à <span>aprendizagem ativa</span></h2>
+    <p class="section-desc">Os questionários integrados ao player transformam o treinamento em uma experiência de verificação real do conhecimento.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-2" style="margin-bottom: 32px;">
+    <div>
+      <ul class="check-list">
+        <li>Questionários integrados diretamente ao módulo do treinamento</li>
+        <li>Tipos de questão: múltipla escolha e verdadeiro/falso</li>
+        <li>Nota mínima configurável para aprovação</li>
+        <li>Número máximo de tentativas por colaborador</li>
+        <li>Tempo limite por questionário, quando configurado</li>
+        <li>Registro de data e hora de cada tentativa</li>
+        <li>Registro de tempo gasto em cada tentativa</li>
+        <li>Feedback visual após cada questão respondida</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="check-list">
+        <li>Exibição da resposta correta quando configurada pelo administrador</li>
+        <li>Histórico de tentativas acessível pelo colaborador</li>
+        <li>Indicação clara de aprovação ou reprovação</li>
+        <li>Pontuação individual por questão</li>
+        <li>Controle de tentativas: bloqueio ao atingir o limite</li>
+        <li>Reset de tentativas disponível para perfis autorizados</li>
+        <li>Importação de questões a partir de arquivo JSON externo</li>
+        <li>Questionário vinculado ao módulo como critério de conclusão</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p>"Os quizzes transformam o treinamento em uma experiência <span style="color:rgba(255,255,255,0.5);">—</span> não apenas passiva, mas ativa. O colaborador valida o que aprendeu, e a empresa tem evidência registrada desse processo."</p>
+  </div>
+</div>
+
+<!-- ============================= 06. CICLO DO TREINAMENTO ============================= -->
+<div class="page-band page-break">
+  <h2>06 · Ciclo Completo do Treinamento</h2>
+  <div class="page-band-number">06</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Jornada do Colaborador</span>
+    <h2 class="section-title">Da inscrição ao <span>certificado</span></h2>
+    <p class="section-desc">Todas as etapas são controladas, registradas e rastreadas dentro da plataforma.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <!-- Fluxo simplificado em cards numerados -->
+  <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px;">
+    <div class="journey-step" style="background: var(--dark);">
+      <div class="journey-num">1</div>
+      <div style="font-size:22px; margin-bottom:8px;">👤</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Cadastro do Colaborador</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">2</div>
+      <div style="font-size:22px; margin-bottom:8px;">🏢</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Associação ao Cargo e Unidade</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">3</div>
+      <div style="font-size:22px; margin-bottom:8px;">🗺️</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Definição da Trilha Obrigatória</div>
+    </div>
+    <div class="journey-step" style="background: var(--red);">
+      <div class="journey-num" style="background: var(--dark); color: white;">4</div>
+      <div style="font-size:22px; margin-bottom:8px;">✍️</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Inscrição no Treinamento</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">5</div>
+      <div style="font-size:22px; margin-bottom:8px;">📚</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Realização da Teoria (Player)</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">6</div>
+      <div style="font-size:22px; margin-bottom:8px;">❓</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Quiz / Avaliação de Conhecimento</div>
+    </div>
+    <div class="journey-step" style="background: var(--red);">
+      <div class="journey-num" style="background: var(--dark); color: white;">7</div>
+      <div style="font-size:22px; margin-bottom:8px;">🏋️</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Realização da Prática (quando aplicável)</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">8</div>
+      <div style="font-size:22px; margin-bottom:8px;">✅</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Conclusão Registrada</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">9</div>
+      <div style="font-size:22px; margin-bottom:8px;">🏅</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Emissão do Certificado</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark);">
+      <div class="journey-num">10</div>
+      <div style="font-size:22px; margin-bottom:8px;">📁</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Histórico Centralizado</div>
+    </div>
+    <div class="journey-step" style="background: var(--dark3);">
+      <div class="journey-num">11</div>
+      <div style="font-size:22px; margin-bottom:8px;">🔄</div>
+      <div style="font-size:11px; font-weight:700; line-height:1.4;">Controle de Validade e Reciclagem</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 07. TRILHAS ============================= -->
+<div class="page-band page-break">
+  <h2>07 · Trilhas de Capacitação</h2>
+  <div class="page-band-number">07</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Matriz por Cargo e Função</span>
+    <h2 class="section-title">Cada cargo, sua <span>trilha obrigatória</span></h2>
+    <p class="section-desc">A Matriz de Capacitação define quais treinamentos são obrigatórios para cada cargo ou função, padronizando o processo em todas as unidades.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-3">
+    <div class="card">
+      <div class="card-icon">🗂️</div>
+      <h3>Matriz por Cargo</h3>
+      <p>Associação de treinamentos obrigatórios a cargos específicos. Quando um colaborador é alocado a um cargo, sua trilha já está definida na plataforma.</p>
+    </div>
+    <div class="card card-red">
+      <div class="card-icon">⚡</div>
+      <h3>Sincronização Automática</h3>
+      <p>A plataforma sincroniza automaticamente as inscrições com base na matriz vigente, reduzindo o trabalho manual da equipe de RH e SESMT.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>Controle por Unidade</h3>
+      <p>A matriz pode ser consultada por unidade, cargo e colaborador, permitindo identificar rapidamente quem está com pendências na sua trilha.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📤</div>
+      <h3>Importação de Matriz</h3>
+      <p>A matriz de treinamentos pode ser importada via planilha, com visualização prévia antes de aplicar as alterações, evitando erros em massa.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🚦</div>
+      <h3>Visão da Situação</h3>
+      <p>Cada colaborador tem sua situação classificada: em andamento, concluído, fora da matriz ou inativo. Visualização por abas no perfil do colaborador.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔔</div>
+      <h3>Relatório de Missões</h3>
+      <p>Relatório que cruza missões (trilhas), cargos e treinamentos relacionados, oferecendo visão completa da cobertura de capacitação por função.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 08. LISTA DE PRESENÇA DIGITAL ============================= -->
+<div class="page-band page-break">
+  <h2>08 · Lista de Presença Digital</h2>
+  <div class="page-band-number">08</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Presença Rastreável</span>
+    <h2 class="section-title">Do papel para o <span>registro digital</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="highlight-box">
+    <p>"Do registro em papel para uma <span>presença digital rastreável</span>, organizada e pronta para consulta."</p>
+  </div>
+
+  <div class="cards-grid cards-grid-3" style="margin-top: 32px;">
+    <div class="card">
+      <div class="card-icon">🗓️</div>
+      <h3>Calendário de Turmas</h3>
+      <p>Visão calendário de todas as turmas de atividade prática, com cores por status: rascunho, solicitada, aprovada, disponível e finalizada.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>Criação de Turma</h3>
+      <p>Seleção do treinamento, unidade local, data e hora de início. Carga horária calculada automaticamente com base na duração configurada.</p>
+    </div>
+    <div class="card card-dark">
+      <div class="card-icon card-icon-white">✔️</div>
+      <h3>Fluxo de Aprovação</h3>
+      <p>A turma passa por etapas: rascunho → solicitada → aprovada → disponível para alocação → versão final. Cada etapa com controle de permissão.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h3>Alocação por Unidade</h3>
+      <p>Definição de vagas por unidade participante. Alocação nominal dos colaboradores aptos (teoria concluída, aguardando prática) por cada gestor.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👨‍🏫</div>
+      <h3>Instrutor Identificado</h3>
+      <p>Associação de instrutor à turma. O instrutor é identificado e registrado nos dados da Lista de Presença Digital.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Relatório de Aptos</h3>
+      <p>Relatório integrado que exibe a quantidade de colaboradores aptos à prática por unidade, facilitando o planejamento das turmas.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Impressão e Finalização</h3>
+      <p>Após encerramento da turma, a lista de participantes com datas de conclusão e tempo desde a conclusão da teoria fica disponível para consulta.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Sincronização com Conclusões</h3>
+      <p>As presenças registradas na Lista Digital são sincronizadas automaticamente com as conclusões na plataforma, eliminando lançamentos manuais.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📤</div>
+      <h3>Exportação de Aptos</h3>
+      <p>Exportação da lista de colaboradores aptos para prática em PDF e Excel, por agendamento específico ou consulta geral.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 09. CERTIFICADOS ============================= -->
+<div class="page-band page-break">
+  <h2>09 · Certificados</h2>
+  <div class="page-band-number">09</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Emissão e Validação</span>
+    <h2 class="section-title">Certificados com <span>autenticidade verificável</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-2">
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>🏅 Emissão Automática</h3>
+      <p>O certificado é gerado automaticamente ao concluir o treinamento, com dados do colaborador, treinamento, carga horária e data de conclusão.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>📁 Exportação em Massa</h3>
+      <p>Certificados de múltiplos colaboradores podem ser exportados em lote no formato ZIP (PDF individual por colaborador) ou planilha Excel.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>🔑 Token Único de Autenticidade</h3>
+      <p>Cada certificado recebe um token único que permite verificação pública da autenticidade por qualquer pessoa com a URL ou QR Code.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>🎨 Modelos Configuráveis</h3>
+      <p>Suporte a modelos de certificado configuráveis por treinamento, incluindo verso com conteúdo programático personalizado.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>📱 Validação por QR Code</h3>
+      <p>O QR Code impresso ou exibido no certificado direciona para uma página pública de validação, sem necessidade de login na plataforma.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h3>🔍 Filtros para Consulta</h3>
+      <p>Consulta de certificados com filtros por unidade, treinamento e colaborador. Acesso por gestores para as unidades que gerenciam.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 10. HISTÓRICO E PERFIL ============================= -->
+<div class="page-band page-break">
+  <h2>10 · Histórico Completo do Colaborador</h2>
+  <div class="page-band-number">10</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Trajetória de Capacitação</span>
+    <h2 class="section-title">Tudo em um único <span>perfil</span></h2>
+    <p class="section-desc">O perfil de cada colaborador centraliza todas as informações de capacitação em um único local, reduzindo o tempo de consulta e eliminando buscas em documentos dispersos.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-2">
+    <div>
+      <ul class="check-list">
+        <li>Foto, nome completo, cargo e unidade atual</li>
+        <li>Última data de acesso ao sistema</li>
+        <li>Treinamentos em andamento com data de inscrição</li>
+        <li>Treinamentos concluídos com data e tipo (teoria/prática)</li>
+        <li>Treinamentos fora da matriz atual identificados</li>
+        <li>Inscrições inativas separadas das ativas</li>
+        <li>Contadores por aba: em andamento, concluídos, fora da matriz, inativos</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="check-list">
+        <li>Matriz vigente de treinamentos obrigatórios por cargo</li>
+        <li>Busca por matrícula: navegar entre colaboradores pelo teclado</li>
+        <li>Ações disponíveis por perfil: desativar inscrição, acessar link</li>
+        <li>Histórico de colaboradores desligados com exportação em PDF</li>
+        <li>Consulta por matrícula ou nome do colaborador desligado</li>
+        <li>Dados de movimentação: histórico de afastamentos e retornos</li>
+        <li>Validade dos treinamentos e status de reciclagem</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 11. RELATÓRIOS ============================= -->
+<div class="page-band page-break">
+  <h2>11 · Relatórios e Visão Gerencial</h2>
+  <div class="page-band-number">11</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Informação para Decisão</span>
+    <h2 class="section-title">Relatórios organizados para <span>gestão e auditoria</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:0; margin-bottom: 32px;">
+    <p>"Informações organizadas para <span>decisões mais rápidas</span> e uma gestão mais segura."</p>
+  </div>
+
+  <div class="module-group">
+    <div class="module-item">
+      <h4>📊 Dashboard Gerencial</h4>
+      <p>Indicadores globais: colaboradores ativos/inativos, unidades, treinamentos ofertados por tipo, inscrições, concluídos e aguardando prática.</p>
+    </div>
+    <div class="module-item">
+      <h4>🧊 Cubo de Treinamentos</h4>
+      <p>Visão analítica com filtros por unidade, treinamento, situação e período. Agrupa por treinamento e unidade. Exportação em Excel e PDF.</p>
+    </div>
+    <div class="module-item">
+      <h4>📅 Relatório Mensal</h4>
+      <p>Treinamentos concluídos em um período selecionado, com tipo (formação/reciclagem), unidade, carga horária e agrupamento por turma. Exportável em Excel.</p>
+    </div>
+    <div class="module-item">
+      <h4>🏋️ Aptos à Prática</h4>
+      <p>Colaboradores que concluíram a teoria e aguardam a parte prática. Filtros por unidade e treinamento. Exportação em Excel e PDF.</p>
+    </div>
+    <div class="module-item">
+      <h4>📁 Histórico de Desligados</h4>
+      <p>Consulta de treinamentos concluídos de colaboradores desligados, por matrícula ou nome. Geração de PDF completo para fins trabalhistas e de auditoria.</p>
+    </div>
+    <div class="module-item">
+      <h4>📈 Relatório de Treinamentos</h4>
+      <p>Quantidade de treinamentos por período, pessoas treinadas por unidade e por treinamento. Visão gráfica e consolidada.</p>
+    </div>
+    <div class="module-item">
+      <h4>👥 Relatório de Pessoas</h4>
+      <p>Treinamentos concluídos e em andamento por treinamento. Participação por trilha/missão. Cruzamento entre inscrições e conclusões.</p>
+    </div>
+    <div class="module-item">
+      <h4>🗺️ Relatório de Missões</h4>
+      <p>Missões (trilhas) ativas com os cargos relacionados e os treinamentos que compõem cada missão. Visão de cobertura por função.</p>
+    </div>
+    <div class="module-item">
+      <h4>📧 Gestão de E-mails de Gestores</h4>
+      <p>Gerenciamento dos e-mails cadastrados para cada gestor, com atualização individual ou em massa para envio de relatórios automáticos.</p>
+    </div>
+    <div class="module-item">
+      <h4>📩 Envio Automático de Relatório</h4>
+      <p>Relatório diário de teoria concluída enviado automaticamente a cada gestor com a lista de colaboradores da sua unidade que concluíram teoria naquele dia.</p>
+    </div>
+    <div class="module-item">
+      <h4>🔴 Controle de Aptidão</h4>
+      <p>Painel de colaboradores aptos, inaptos ou em situação mista por treinamento e unidade. Filtro por status e busca por nome ou matrícula.</p>
+    </div>
+    <div class="module-item">
+      <h4>🏅 Relatório de Certificados</h4>
+      <p>Consulta e exportação de certificados emitidos com filtros por unidade e treinamento. Exportação em Excel. Perfil gestor com acesso às suas unidades.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 12. AUDITORIA ============================= -->
+<div class="page-band page-break">
+  <h2>12 · Preparada para Auditorias</h2>
+  <div class="page-band-number">12</div>
+</div>
+
+<div class="section-full" style="background: radial-gradient(circle at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 40%), linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white; padding: 72px 64px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <span class="section-tag" style="color: var(--red);">Rastreabilidade e Evidências</span>
+      <h2 class="section-title" style="color: white;">Da capacitação à evidência: <span>informações estruturadas</span></h2>
+      <div class="line-accent"></div>
+    </div>
+
+    <div style="background: rgba(29,211,176,0.15); border: 1px solid rgba(29,211,176,0.4); border-radius: 12px; padding: 28px 32px; margin-bottom: 40px;">
+      <p style="color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.7; font-weight: 500;">
+        "Da capacitação à evidência: <strong style="color: var(--red);">informações estruturadas</strong> para facilitar verificações, auditorias e tomadas de decisão."
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">📅</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Datas Registradas</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Data de inscrição, data de conclusão da teoria e data de conclusão da prática registradas separadamente para cada treinamento.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">🔍</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Diferenciação Teoria x Prática</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Relatórios e histórico diferenciam claramente a conclusão da teoria e da parte prática, facilitando verificações de treinamentos híbridos.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">🔑</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Certificados com Token Único</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Cada certificado tem token único para validação pública. Apresentável em auditorias como comprovação de autenticidade da conclusão.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">📋</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Lista de Presença Controlada</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Turmas com registro de participantes por unidade, instrutor identificado, vagas por unidade, data e horário — tudo centralizado na plataforma.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">📁</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Histórico de Desligados</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Consulta de treinamentos concluídos de colaboradores desligados, com exportação em PDF preparada para fins trabalhistas.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">📊</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Cubo Analítico Exportável</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Cubo de treinamentos com estado detalhado: "Falta só prática", "Falta teoria e prática", "Treinamento completo" — exportável em Excel e PDF.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">🔄</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Controle de Reciclagens</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Gestão de vencimentos e programação de reciclagens, com identificação de colaboradores com treinamentos vencidos ou próximos do vencimento.</p>
+      </div>
+      <div class="audit-card">
+        <div style="font-size: 20px; margin-bottom: 10px;">🗂️</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Organização por Unidade</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Todos os relatórios e consultas podem ser filtrados por unidade, permitindo responder rapidamente a verificações específicas de um estabelecimento.</p>
+      </div>
+      <div class="audit-card audit-card-highlight">
+        <div style="font-size: 20px; margin-bottom: 10px;">⚡</div>
+        <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Consulta Rápida por Matrícula</h4>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.5;">Em qualquer ponto da plataforma, é possível localizar o histórico completo de um colaborador informando apenas a matrícula ou nome.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px 24px;">
+      <p style="color: rgba(255,255,255,0.6); font-size: 12px; font-style: italic; line-height: 1.6;">
+        A plataforma <strong style="color: rgba(255,255,255,0.9);">apoia a conformidade, fortalece os controles, facilita auditorias, melhora a rastreabilidade, organiza evidências e reduz riscos operacionais.</strong>
+        Não é prometida a eliminação completa de riscos ou a garantia de conformidade legal absoluta, mas sim a estrutura adequada para que as equipes responsáveis possam demonstrar o cumprimento das capacitações exigidas.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 13. CONTROLES ADMINISTRATIVOS ============================= -->
+<div class="page-band page-break">
+  <h2>13 · Controles Administrativos</h2>
+  <div class="page-band-number">13</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Precisão Operacional</span>
+    <h2 class="section-title">Mecanismos que aumentam a <span>precisão e reduzem inconsistências</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-3">
+    <div class="card">
+      <h3>📝 Inscrições Individuais e Massivas</h3>
+      <p>Inscrição individual por busca de colaborador. Inscrição em massa por cargo, por planilha ou por matrícula (RE). Identificação de já inscritos.</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ Edição Controlada de Conclusões</h3>
+      <p>Ferramenta administrativa para ajuste de conclusões de treinamentos, com busca por matrícula e rastreabilidade da alteração.</p>
+    </div>
+    <div class="card">
+      <h3>🔄 Antecipação de Inscrições</h3>
+      <p>Possibilidade de antecipar a inscrição de um colaborador específico dentro da trilha programada.</p>
+    </div>
+    <div class="card">
+      <h3>🗂️ Gestão de Status de Treinamento</h3>
+      <p>Troca de status de inscrições individuais com log da ação. Separação clara entre inscrições ativas, concluídas e desativadas.</p>
+    </div>
+    <div class="card card-red">
+      <h3>🔑 Gestão de Permissões de Gestores</h3>
+      <p>Alocação e desalocação de gestores por unidade. Atualização individual ou em massa de permissões. Reset de senha para múltiplos usuários selecionados.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Baixa Massiva</h3>
+      <p>Ferramenta para baixa de treinamentos em lote para colaboradores selecionados, com exportação do resultado em Excel.</p>
+    </div>
+    <div class="card">
+      <h3>🔄 Ajuste de Reciclagem por Cargo</h3>
+      <p>Ferramenta para converter inscrições de capacitação em reciclagem com base no cargo do colaborador, com visualização prévia antes de executar.</p>
+    </div>
+    <div class="card">
+      <h3>🧩 Ajuste de OTJ</h3>
+      <p>Ferramenta específica para busca e ajuste de inscrições OTJ (On-The-Job), com opção de incluir novas inscrições manualmente.</p>
+    </div>
+    <div class="card">
+      <h3>🔁 Reset de Tentativas</h3>
+      <p>Administração de tentativas de questionário: busca por colaborador, consulta de tentativas anteriores e reset controlado.</p>
+    </div>
+    <div class="card">
+      <h3>📁 Duplicação de Treinamentos</h3>
+      <p>Possibilidade de duplicar um treinamento existente, aproveitando a estrutura de módulos para criar variações sem reconstrução do zero.</p>
+    </div>
+    <div class="card">
+      <h3>🔢 Reordenação de Módulos</h3>
+      <p>Reordenação manual da sequência de módulos de um treinamento via interface administrativa, sem necessidade de excluir e recriar.</p>
+    </div>
+    <div class="card">
+      <h3>📤 Sincronização Manual e Automática</h3>
+      <p>Sincronização da Lista de Presença Digital com conclusões da plataforma disponível para execução manual e de forma automática diária.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 14. AUTOMAÇÕES ============================= -->
+<div class="page-band page-break">
+  <h2>14 · Automações e Integrações</h2>
+  <div class="page-band-number">14</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Menos Trabalho Manual</span>
+    <h2 class="section-title">A plataforma trabalha <span>enquanto você opera</span></h2>
+    <p class="section-desc">Rotinas automáticas garantem que os registros estejam sempre atualizados, reduzindo o risco de inconsistências e liberando a equipe para o que realmente importa.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-2">
+    <div class="card card-dark">
+      <div class="card-icon card-icon-white">🔄</div>
+      <h3>Sincronização Diária Automática</h3>
+      <p>Toda madrugada a plataforma sincroniza automaticamente as conclusões da Lista de Presença Digital com o histórico de cada colaborador, sem necessidade de ação manual.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📧</div>
+      <h3>Relatório Diário de Teoria Concluída</h3>
+      <p>Às 21h25, a plataforma envia automaticamente a cada gestor a lista de colaboradores da sua unidade que concluíram a teoria naquele dia.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h3>Processamento Periódico (CRON)</h3>
+      <p>Processamento automático de inscrições e registros duas vezes ao dia, garantindo que nenhuma informação fique defasada por longos períodos.</p>
+    </div>
+    <div class="card card-dark">
+      <div class="card-icon card-icon-white">⚡</div>
+      <h3>Sincronização de Matriz com Inscrições</h3>
+      <p>A sincronização entre a Matriz de Capacitação e as inscrições pode ser executada manual ou automaticamente, garantindo que todos os colaboradores tenham os treinamentos corretos associados ao cargo.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Integração com Ambiente Externo</h3>
+      <p>Integração com o ambiente de cursos externo (Moodle), permitindo que colaboradores acessem treinamentos no ambiente preferencial configurado para seu perfil.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Importação Inteligente de Usuários</h3>
+      <p>Importação de colaboradores via planilha com processamento de status: admissão, afastamento, retorno de afastamento — tudo tratado automaticamente na importação.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 15. PERFIS E PERMISSÕES ============================= -->
+<div class="page-band page-break">
+  <h2>15 · Perfis e Permissões</h2>
+  <div class="page-band-number">15</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Acesso Controlado</span>
+    <h2 class="section-title">Cada perfil, <span>sua responsabilidade</span></h2>
+    <p class="section-desc">A plataforma conta com seis perfis de acesso distintos, garantindo que cada usuário visualize e execute apenas as ações correspondentes ao seu papel.</p>
+    <div class="line-accent"></div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 32px;">
+    <div class="profile-item">
+      <div class="profile-avatar">👤</div>
+      <div class="profile-info">
+        <h4>Colaborador</h4>
+        <p>Acessa seus treinamentos em andamento e concluídos, visualiza seu progresso, realiza quizzes e acessa seus certificados.</p>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-avatar">👔</div>
+      <div class="profile-info">
+        <h4>Gestor</h4>
+        <p>Visualiza colaboradores e treinamentos das unidades que gerencia. Aloca colaboradores em turmas práticas, consulta relatórios das suas unidades e recebe relatórios automáticos por e-mail.</p>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-avatar">🛡️</div>
+      <div class="profile-info">
+        <h4>SESMT / Segurança do Trabalho</h4>
+        <p>Acesso às telas de Lista de Presença Digital, alocação de colaboradores em turmas práticas e relatórios de aptos. Foco na gestão dos treinamentos regulatórios.</p>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-avatar">👨‍🏫</div>
+      <div class="profile-info">
+        <h4>Instrutor</h4>
+        <p>Acesso às listas de turmas associadas e controle das informações específicas da atividade prática que ministra.</p>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-avatar">⚙️</div>
+      <div class="profile-info">
+        <h4>Administrador</h4>
+        <p>Acesso completo à gestão de treinamentos, inscrições em massa, controles administrativos, relatórios gerais, gestão de gestores e configurações do sistema.</p>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-avatar">💻</div>
+      <div class="profile-info">
+        <h4>TI / Suporte</h4>
+        <p>Acesso irrestrito a todos os módulos e configurações, incluindo ferramentas de diagnóstico, sincronização manual, reset de tentativas, logs de sistema e monitoramento da plataforma.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 16. BENEFÍCIOS ============================= -->
+<div class="page-band page-break">
+  <h2>16 · Benefícios para a TecnoCursos</h2>
+  <div class="page-band-number">16</div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-header">
+    <span class="section-tag">Resultado Concreto</span>
+    <h2 class="section-title">O que a plataforma <span>entrega</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div class="cards-grid cards-grid-4">
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🎯</div>
+      <h3 style="font-size: 13px;">Mais controle sobre as capacitações</h3>
+      <p style="font-size: 12px;">Visão em tempo real de quem está em andamento, concluído ou com pendências.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">⚡</div>
+      <h3 style="font-size: 13px;">Menos processos manuais</h3>
+      <p style="font-size: 12px;">Automações substituem lançamentos manuais, reduzindo erros e retrabalho.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🗄️</div>
+      <h3 style="font-size: 13px;">Informações centralizadas</h3>
+      <p style="font-size: 12px;">Tudo em um único sistema: colaboradores, treinamentos, presença, certificados e relatórios.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🔍</div>
+      <h3 style="font-size: 13px;">Maior rastreabilidade</h3>
+      <p style="font-size: 12px;">Registro de datas, responsáveis, tipos de conclusão e histórico de ações.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">📁</div>
+      <h3 style="font-size: 13px;">Evidências organizadas</h3>
+      <p style="font-size: 12px;">Certificados com QR Code, listas de presença digitais e histórico consultável.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🌿</div>
+      <h3 style="font-size: 13px;">Redução de papel</h3>
+      <p style="font-size: 12px;">Lista de presença digital elimina controles físicos vulneráveis e de difícil organização.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🎓</div>
+      <h3 style="font-size: 13px;">Treinamentos mais atrativos</h3>
+      <p style="font-size: 12px;">Conteúdos interativos, quizzes e progresso visual aumentam o engajamento.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">⏰</div>
+      <h3 style="font-size: 13px;">Melhor acompanhamento de pendências</h3>
+      <p style="font-size: 12px;">Relatórios com filtros por unidade e cargo identificam rapidamente quem está atrasado.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🏢</div>
+      <h3 style="font-size: 13px;">Padronização entre unidades</h3>
+      <p style="font-size: 12px;">A Matriz garante que todas as unidades sigam o mesmo padrão de capacitação por cargo.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">⚡</div>
+      <h3 style="font-size: 13px;">Agilidade em auditorias</h3>
+      <p style="font-size: 12px;">Consulta rápida por matrícula, exportação em Excel e PDF prontos para apresentação.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">📊</div>
+      <h3 style="font-size: 13px;">Visão gerencial integrada</h3>
+      <p style="font-size: 12px;">Dashboard com indicadores globais e relatórios analíticos para tomada de decisão.</p>
+    </div>
+    <div class="card" style="border-top: 4px solid var(--red); text-align: center; padding: 24px 16px;">
+      <div style="font-size: 28px; margin-bottom: 10px;">🚀</div>
+      <h3 style="font-size: 13px;">Plataforma preparada para evoluir</h3>
+      <p style="font-size: 12px;">Arquitetura modular que permite adicionar novas funcionalidades sem impacto no que já funciona.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= 17. EVOLUÇÃO CONTÍNUA ============================= -->
+<div class="page-band page-break">
+  <h2>17 · Evolução Contínua</h2>
+  <div class="page-band-number">17</div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <span class="section-tag">Compromisso com o Futuro</span>
+    <h2 class="section-title">Uma solução que <span>não para</span></h2>
+    <div class="line-accent"></div>
+  </div>
+
+  <div style="background: linear-gradient(135deg, #F7F7F7 0%, #ECECEC 100%); border-radius: 16px; padding: 44px; margin-bottom: 40px; border-left: 5px solid var(--red);">
+    <p style="font-size: 16px; line-height: 1.8; color: var(--dark2);">
+      A evolução realizada no último ano demonstra o compromisso contínuo com a <strong>modernização dos treinamentos</strong>,
+      a <strong>melhoria da experiência dos colaboradores</strong> e o <strong>fortalecimento dos controles de gestão</strong>.
+      A plataforma está preparada para acompanhar novas necessidades operacionais, tecnológicas e de capacitação da TecnoCursos.
+    </p>
+  </div>
+
+  <div class="indicators-grid">
+    <div class="indicator-item">
+      <div class="indicator-value">7+</div>
+      <div class="indicator-label">Tipos de Módulo de Conteúdo</div>
+    </div>
+    <div class="indicator-item">
+      <div class="indicator-value">12+</div>
+      <div class="indicator-label">Relatórios Disponíveis</div>
+    </div>
+    <div class="indicator-item">
+      <div class="indicator-value">6</div>
+      <div class="indicator-label">Perfis de Acesso</div>
+    </div>
+    <div class="indicator-item">
+      <div class="indicator-value">4+</div>
+      <div class="indicator-label">Automações Ativas</div>
+    </div>
+    <div class="indicator-item">
+      <div class="indicator-value">11</div>
+      <div class="indicator-label">Etapas no Ciclo do Treinamento</div>
+    </div>
+    <div class="indicator-item">
+      <div class="indicator-value">3+</div>
+      <div class="indicator-label">Formatos de Exportação</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    <div style="text-align: center; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white;">
+      <div style="font-size: 22px; margin-bottom: 8px;">🎓</div>
+      <div style="font-size: 13px; font-weight: 700;">Jornada Completa</div>
+      <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px;">Do cadastro ao certificado</div>
+    </div>
+    <div style="text-align: center; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white;">
+      <div style="font-size: 22px; margin-bottom: 8px;">🔍</div>
+      <div style="font-size: 13px; font-weight: 700;">Evidências Digitais</div>
+      <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px;">Prontas para auditoria</div>
+    </div>
+    <div style="text-align: center; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white;">
+      <div style="font-size: 22px; margin-bottom: 8px;">⚡</div>
+      <div style="font-size: 13px; font-weight: 700;">Automação Contínua</div>
+      <div style="font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px;">Dados sempre atualizados</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= ENCERRAMENTO ============================= -->
+<div class="closing page-break">
+  <h1>TECNOLOGIA QUE<br><span>TRANSFORMA TREINAMENTOS</span><br>EM RESULTADOS</h1>
+  <p>
+    Mais do que disponibilizar conteúdos, a plataforma conecta pessoas, treinamentos, controles e evidências
+    em uma única jornada. O resultado é uma gestão mais moderna, organizada, rastreável e preparada para
+    os desafios da operação.
+  </p>
+  <div class="closing-badge">Uma solução construída para evoluir junto com a TecnoCursos</div>
+</div>
+
+</body>
+</html>
+
