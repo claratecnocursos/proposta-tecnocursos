@@ -31,6 +31,11 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
     background: var(--white);
@@ -38,7 +43,10 @@
     font-size: 14px;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
   }
+
+  img { max-width: 100%; }
 
   /* =================== CAPA =================== */
   .cover {
@@ -379,9 +387,15 @@
     gap: 20px;
   }
 
-  .cards-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .cards-grid-3 { grid-template-columns: repeat(3, 1fr); }
-  .cards-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .cards-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cards-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
 
   .card {
     background: var(--white);
@@ -677,7 +691,7 @@
   /* =================== MÓDULOS/GRUPOS =================== */
   .module-group {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 16px;
     margin-top: 24px;
   }
@@ -713,7 +727,7 @@
   /* =================== INDICADORES =================== */
   .indicators-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     margin-top: 32px;
   }
@@ -918,6 +932,116 @@
   .mt-32 { margin-top: 32px; }
   .mt-48 { margin-top: 48px; }
 
+  /* =================== RESPONSIVIDADE / MOBILE =================== */
+  @media (max-width: 900px) {
+    .section, .section-full { padding: 56px 32px; }
+    .cover { padding: 48px 28px; }
+    .closing { padding: 80px 32px; }
+
+    .cards-grid-3, .cards-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .section, .section-full { padding: 44px 20px; }
+    .cover { padding: 40px 20px; }
+    .closing { padding: 64px 20px; }
+
+    .page-band { padding: 16px 20px; }
+    .page-band h2 { font-size: 14px; }
+    .page-band-number { font-size: 28px; }
+
+    .cards-grid { gap: 16px; }
+    .cards-grid-2, .cards-grid-3, .cards-grid-4, .grid-3 { grid-template-columns: 1fr; }
+
+    .indicators-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .indicator-item { padding: 20px 14px; }
+
+    .module-group { grid-template-columns: 1fr; gap: 12px; }
+
+    .exec-intro { padding: 28px 22px; border-radius: 16px; }
+    .exec-intro p { font-size: 14.5px; }
+
+    .highlight-box { padding: 30px 22px; border-radius: 18px; margin: 32px 0; }
+
+    .card { padding: 22px; }
+
+    .journey-step { flex: 1 1 calc(50% - 8px); }
+
+    .profile-item { padding: 14px 16px; gap: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .cover-footer { position: static; margin-top: 32px; text-align: center; }
+    .cover { padding-bottom: 60px; }
+
+    .page-band { flex-wrap: wrap; gap: 4px; }
+
+    .indicators-grid { grid-template-columns: 1fr; }
+
+    .journey-step { flex: 1 1 100%; }
+  }
+
+  /* --- Tabela Antes x Agora: layout empilhado em telas pequenas --- */
+  @media (max-width: 700px) {
+    .evolution-table, .evolution-table thead, .evolution-table tbody,
+    .evolution-table tr, .evolution-table th, .evolution-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .evolution-table thead { display: none; }
+
+    .evolution-table tr {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(10,19,38,0.08);
+    }
+
+    .evolution-table tr:last-child { border-bottom: none; }
+
+    .evolution-table td {
+      padding: 4px 0 !important;
+      border: none !important;
+      background: transparent !important;
+      font-size: 13px;
+    }
+
+    .evolution-table td:first-child {
+      color: var(--gray-light);
+      margin-bottom: 6px;
+    }
+
+    .evolution-table td:first-child::before {
+      content: 'Antes';
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 4px;
+    }
+
+    .evolution-table td:last-child {
+      padding-top: 10px !important;
+      border-top: 1px dashed rgba(29,211,176,0.35) !important;
+    }
+
+    .evolution-table td:last-child::before {
+      content: '✦ Evolução Atual';
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-bottom: 4px;
+    }
+
+    .section-dark .evolution-table td:first-child { color: rgba(255,255,255,0.5); }
+    .section-dark .evolution-table td:last-child { color: rgba(255,255,255,0.92); }
+  }
+
   /* =================== IMPRESSÃO =================== */
   @media print {
     .cover { page-break-after: always; min-height: 100vh; }
@@ -1032,7 +1156,7 @@
       </tr>
       <tr>
         <td>Conteúdos apenas lineares em texto ou vídeo avulso</td>
-        <td>Módulos com vídeo (Vimeo), páginas HTML interativas (H5P), textos ricos, arquivos e questionários</td>
+        <td>Módulos com vídeo, páginas HTML interativas (H5P), textos ricos, arquivos e questionários</td>
       </tr>
       <tr>
         <td>Sem avaliação integrada ao conteúdo</td>
@@ -1092,7 +1216,7 @@
     </div>
     <div class="module-item">
       <h4>🎬 Player de Treinamento</h4>
-      <p>Módulos sequenciais com vídeo Vimeo, conteúdo H5P interativo, texto rico, páginas HTML, arquivos e questionários integrados.</p>
+      <p>Módulos sequenciais com vídeo, conteúdo H5P interativo, texto rico, páginas HTML, arquivos e questionários integrados.</p>
     </div>
     <div class="module-item">
       <h4>❓ Quizzes e Avaliações</h4>
@@ -1166,7 +1290,7 @@
     <div class="card">
       <div class="card-icon">🎬</div>
       <h3>Vídeos com Progresso</h3>
-      <p>Módulos com vídeo via Vimeo com acompanhamento de percentual assistido. O colaborador sabe exatamente onde parou e quanto falta.</p>
+      <p>Módulos com vídeo e acompanhamento de percentual assistido. O colaborador sabe exatamente onde parou e quanto falta.</p>
     </div>
     <div class="card card-outline">
       <div class="card-icon">🧩</div>
@@ -1601,7 +1725,7 @@
   <div class="page-band-number">12</div>
 </div>
 
-<div class="section-full" style="background: radial-gradient(circle at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 40%), linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white; padding: 72px 64px;">
+<div class="section-full" style="background: radial-gradient(circle at 12% 8%, rgba(255,255,255,0.08) 0%, transparent 40%), linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white;">
   <div style="max-width: 1100px; margin: 0 auto;">
     <div class="section-header">
       <span class="section-tag" style="color: var(--red);">Rastreabilidade e Evidências</span>
@@ -1615,7 +1739,7 @@
       </p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    <div class="grid-3">
       <div class="audit-card">
         <div style="font-size: 20px; margin-bottom: 10px;">📅</div>
         <h4 style="color: white; font-size: 13px; font-weight: 700; margin-bottom: 6px;">Datas Registradas</h4>
@@ -1970,7 +2094,7 @@
     </div>
   </div>
 
-  <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+  <div class="grid-3" style="margin-top: 40px;">
     <div style="text-align: center; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 45%, var(--red-dark) 100%); color: white;">
       <div style="font-size: 22px; margin-bottom: 8px;">🎓</div>
       <div style="font-size: 13px; font-weight: 700;">Jornada Completa</div>
